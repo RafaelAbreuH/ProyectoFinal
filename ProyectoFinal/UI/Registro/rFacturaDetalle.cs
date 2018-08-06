@@ -203,7 +203,7 @@ namespace ProyectoFinal.UI.Registro
             }
             else
             {
-                detalle.Add(
+               detalle.Add(
                     new FacturaDetalle(Id: 0,
                     FacturaId: (int)Convert.ToInt32(FactIdNumericUpDown.Value),
                     ClienteId: (int)ClienteComboBox.SelectedValue,
@@ -215,11 +215,14 @@ namespace ProyectoFinal.UI.Registro
 
 
                 DetalleDataGridView.DataSource = null;
-                DetalleDataGridView.DataSource = facturas.Detalle;
+                DetalleDataGridView.DataSource = detalle;
 
-                DetalleDataGridView.Columns["FactDetalleId"].Visible = false;
+
                 DetalleDataGridView.Columns["ClienteId"].Visible = false;
+                DetalleDataGridView.Columns["Id"].Visible = false;
+                DetalleDataGridView.Columns["FacturaId"].Visible = false;
                 DetalleDataGridView.Columns["PeliculaId"].Visible = false;
+                DetalleDataGridView.Columns["pelicula"].Visible = false;
             }
 
             importe += BLL.FacturaBLL.CalcularImporte(PrecioNumericUpDown.Value, Convert.ToInt32(CantidadnumericUpDown.Value));
