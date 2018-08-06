@@ -203,7 +203,7 @@ namespace ProyectoFinal.UI.Registro
             }
             else
             {
-                facturas.Detalle.Add(
+                detalle.Add(
                     new FacturaDetalle(Id: 0,
                     FacturaId: (int)Convert.ToInt32(FactIdNumericUpDown.Value),
                     ClienteId: (int)ClienteComboBox.SelectedValue,
