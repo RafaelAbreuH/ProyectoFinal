@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 
-namespace ProyectoFinal.Entidades
+namespace Entidades
 {
     public class Factura
     {
@@ -13,6 +13,7 @@ namespace ProyectoFinal.Entidades
         public int FacturaId { get; set; }
         public int ClienteId { get; set; }
         public int GeneroId { get; set; }
+        public string Pelicula { get; set; }
         public int ActoresId { get; set; }
         public DateTime Fecha { get; set; }
         public int Precio { get; set; }
@@ -30,9 +31,9 @@ namespace ProyectoFinal.Entidades
             this.Detalle = new List<FacturaDetalle>();
         }
 
-        public void AgregarDetalle(int id, int FacturaId, int PeliculaId,int GeneroId,int ClienteId, int Precio)
+        public void AgregarDetalle(int Id, int facturaId, int clienteId, int peliculaId, string pelicula, int cantidad, decimal precio, decimal importe)
         {
-            this.Detalle.Add(new FacturaDetalle(id, FacturaId, PeliculaId, Precio));
+            this.Detalle.Add(new FacturaDetalle(Id, facturaId, clienteId, peliculaId, pelicula, cantidad, precio, importe));
         }
     }
 }

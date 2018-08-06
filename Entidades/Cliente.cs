@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 
-namespace ProyectoFinal.Entidades
+namespace Entidades
 {
     public class Cliente
     {

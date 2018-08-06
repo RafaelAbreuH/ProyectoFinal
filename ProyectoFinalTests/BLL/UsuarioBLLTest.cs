@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace ProyectoFinal.BLL.Tests
 {
     [TestClass()]
-    public class ActoresBLLTests
+    public class UsuariosBLLTest
     {
         [TestMethod()]
         public void GuardarTest()
@@ -31,6 +31,12 @@ namespace ProyectoFinal.BLL.Tests
 
         [TestMethod()]
         public void BuscarTest()
+        {
+            Assert.Fail();
+        }
+
+        [TestMethod()]
+        public void GetListTodoTest()
         {
             Assert.Fail();
         }

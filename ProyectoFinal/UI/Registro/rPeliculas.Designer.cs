@@ -45,16 +45,16 @@
             this.label1 = new System.Windows.Forms.Label();
             this.PeliculaIdNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.ErrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.InventarioNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
             this.EliminarButton = new System.Windows.Forms.Button();
             this.GuardarButton = new System.Windows.Forms.Button();
             this.NuevoButton = new System.Windows.Forms.Button();
             this.BuscarButton = new System.Windows.Forms.Button();
-            this.CantidadNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.PrecioNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PeliculaIdNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CantidadNumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InventarioNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // FechaDateTimePicker
@@ -103,7 +103,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(25, 123);
+            this.label4.Location = new System.Drawing.Point(25, 117);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(46, 13);
             this.label4.TabIndex = 67;
@@ -112,6 +112,11 @@
             // PrecioNumericUpDown
             // 
             this.PrecioNumericUpDown.Location = new System.Drawing.Point(76, 143);
+            this.PrecioNumericUpDown.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
             this.PrecioNumericUpDown.Name = "PrecioNumericUpDown";
             this.PrecioNumericUpDown.Size = new System.Drawing.Size(78, 20);
             this.PrecioNumericUpDown.TabIndex = 66;
@@ -170,6 +175,11 @@
             // PeliculaIdNumericUpDown
             // 
             this.PeliculaIdNumericUpDown.Location = new System.Drawing.Point(76, 11);
+            this.PeliculaIdNumericUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
             this.PeliculaIdNumericUpDown.Name = "PeliculaIdNumericUpDown";
             this.PeliculaIdNumericUpDown.Size = new System.Drawing.Size(62, 20);
             this.PeliculaIdNumericUpDown.TabIndex = 59;
@@ -177,6 +187,28 @@
             // ErrorProvider
             // 
             this.ErrorProvider.ContainerControl = this;
+            // 
+            // InventarioNumericUpDown
+            // 
+            this.InventarioNumericUpDown.Location = new System.Drawing.Point(218, 143);
+            this.InventarioNumericUpDown.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.InventarioNumericUpDown.Name = "InventarioNumericUpDown";
+            this.InventarioNumericUpDown.ReadOnly = true;
+            this.InventarioNumericUpDown.Size = new System.Drawing.Size(53, 20);
+            this.InventarioNumericUpDown.TabIndex = 77;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(160, 147);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(57, 13);
+            this.label8.TabIndex = 78;
+            this.label8.Text = "Inventario:";
             // 
             // EliminarButton
             // 
@@ -228,29 +260,13 @@
             this.BuscarButton.UseVisualStyleBackColor = true;
             this.BuscarButton.Click += new System.EventHandler(this.BuscarButton_Click);
             // 
-            // CantidadNumericUpDown
-            // 
-            this.CantidadNumericUpDown.Location = new System.Drawing.Point(218, 143);
-            this.CantidadNumericUpDown.Name = "CantidadNumericUpDown";
-            this.CantidadNumericUpDown.Size = new System.Drawing.Size(53, 20);
-            this.CantidadNumericUpDown.TabIndex = 77;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(160, 147);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(52, 13);
-            this.label8.TabIndex = 78;
-            this.label8.Text = "Cantidad:";
-            // 
             // rPeliculas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(288, 281);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.CantidadNumericUpDown);
+            this.Controls.Add(this.InventarioNumericUpDown);
             this.Controls.Add(this.EliminarButton);
             this.Controls.Add(this.GuardarButton);
             this.Controls.Add(this.NuevoButton);
@@ -275,7 +291,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.PrecioNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PeliculaIdNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorProvider)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CantidadNumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InventarioNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -303,6 +319,6 @@
         private System.Windows.Forms.Button NuevoButton;
         private System.Windows.Forms.ErrorProvider ErrorProvider;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.NumericUpDown CantidadNumericUpDown;
+        private System.Windows.Forms.NumericUpDown InventarioNumericUpDown;
     }
 }

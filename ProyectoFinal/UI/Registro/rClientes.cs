@@ -1,5 +1,5 @@
-﻿using ProyectoFinal.BLL;
-using ProyectoFinal.Entidades;
+﻿using BLL;
+using Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -117,34 +117,37 @@ namespace ProyectoFinal.UI.Registro
             if (HayErrores())
                 MessageBox.Show("Debe llenar los campos indicados", "Validación",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-            cliente = LlenarClase();
-
-            if (ClienteIdNumericUpDown.Value == 0)
-                paso = ClientesBLL.Guardar(cliente);
             else
             {
-                int id = Convert.ToInt32(ClienteIdNumericUpDown.Value);
-                cliente = ClientesBLL.Buscar(id);
+                cliente = LlenarClase();
 
-                if (cliente != null)
+                if (ClienteIdNumericUpDown.Value == 0)
+                    paso = ClientesBLL.Guardar(cliente);
+                else
                 {
-                    paso = ClientesBLL.Modificar(LlenarClase());
+                    int id = Convert.ToInt32(ClienteIdNumericUpDown.Value);
+                    cliente = ClientesBLL.Buscar(id);
+
+                    if (cliente != null)
+                    {
+                        paso = ClientesBLL.Modificar(LlenarClase());
+                    }
+                    else
+                        MessageBox.Show("Id no existe", "Falló",
+                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                if (paso)
+                {
+                    MessageBox.Show("Guardado!!", "Exito",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Limpiar();
                 }
                 else
-                    MessageBox.Show("Id no existe", "Falló",
+                    MessageBox.Show("No se pudo guardar!!", "Falló",
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
 
-            if (paso)
-            {
-                MessageBox.Show("Guardado!!", "Exito",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Limpiar();
             }
-            else
-                MessageBox.Show("No se pudo guardar!!", "Falló",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void EliminarButton_Click(object sender, EventArgs e)

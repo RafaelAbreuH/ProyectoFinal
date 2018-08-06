@@ -55,22 +55,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLL\ActoresBLL.cs" />
-    <Compile Include="BLL\ClientesBLL.cs" />
-    <Compile Include="BLL\FacturaBLL.cs" />
-    <Compile Include="BLL\GenerosBLL.cs" />
-    <Compile Include="BLL\IRepository.cs" />
-    <Compile Include="BLL\PeliculasBLL.cs" />
-    <Compile Include="BLL\Repositorio.cs" />
-    <Compile Include="BLL\UsuariosBLL.cs" />
-    <Compile Include="DAL\Contexto.cs" />
-    <Compile Include="Entidades\Actores.cs" />
-    <Compile Include="Entidades\Cliente.cs" />
-    <Compile Include="Entidades\Factura.cs" />
-    <Compile Include="Entidades\FacturaDetalle.cs" />
-    <Compile Include="Entidades\Generos.cs" />
-    <Compile Include="Entidades\Pelicula.cs" />
-    <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +104,12 @@
     </Compile>
     <Compile Include="UI\Registro\rFacturaDetalle.Designer.cs">
       <DependentUpon>rFacturaDetalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registro\rEntradaPelicula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registro\rEntradaPelicula.Designer.cs">
+      <DependentUpon>rEntradaPelicula.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Registro\rActores.cs">
       <SubType>Form</SubType>
@@ -185,6 +175,9 @@
     <EmbeddedResource Include="UI\Registro\rFacturaDetalle.resx">
       <DependentUpon>rFacturaDetalle.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registro\rEntradaPelicula.resx">
+      <DependentUpon>rEntradaPelicula.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Registro\rActores.resx">
       <DependentUpon>rActores.cs</DependentUpon>
     </EmbeddedResource>
@@ -226,7 +219,6 @@
     <None Include="Resources\Capture.PNG" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DAL\Script\ProyectoFinalDb.sql" />
     <None Include="Resources\icons8-file-261.png" />
     <None Include="Resources\Blockbuster_logo.svg.png" />
     <None Include="Resources\Blockbuster_logo.png" />
@@ -256,6 +248,20 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="UI\Reportes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{507a2068-4bbf-477b-ae4a-5170b22e71eb}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{532f70c6-52e6-4c71-b210-160793edd2bb}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{d9a70df5-0c54-47fe-94ca-f8c48de06171}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

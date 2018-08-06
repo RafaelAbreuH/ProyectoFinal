@@ -4,21 +4,21 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 
-namespace ProyectoFinal.Entidades
+namespace Entidades
 {
-    public class Actores
+    public class Generos
     {
         [Key]
 
-        public int ActoresId { get; set; }
+        public int GeneroId { get; set; }
         public string Nombre { get; set; }
-        public DateTime FechaNacimiento { get; set; }
+        public string Descripcion { get; set; }
 
-        public Actores()
+        public Generos()
         {
-            ActoresId = 0;
+            GeneroId = 0;
             Nombre = string.Empty;
-            FechaNacimiento = DateTime.Now;
+            Descripcion = string.Empty;
         }
 
         public override string ToString()

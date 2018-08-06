@@ -59,5 +59,12 @@ namespace ProyectoFinal
             ver.MdiParent = this;
             ver.Show();
         }
+
+        private void entradaPeliculaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            rEntradaPelicula ver = new rEntradaPelicula();
+            ver.MdiParent = this;
+            ver.Show();
+        }
     }
 }

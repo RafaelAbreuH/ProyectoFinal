@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace ProyectoFinal.BLL.Tests
 {
     [TestClass()]
-    public class ActoresBLLTests
+    public class PeliculaBLLTest
     {
         [TestMethod()]
         public void GuardarTest()

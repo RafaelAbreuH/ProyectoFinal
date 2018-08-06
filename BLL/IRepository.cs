@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace ProyectoFinal.BLL
+namespace BLL
 {
     public interface IRepository<T> where T : class
     {

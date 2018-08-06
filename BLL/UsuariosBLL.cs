@@ -1,5 +1,5 @@
-﻿using ProyectoFinal.DAL;
-using ProyectoFinal.Entidades;
+﻿using DAL;
+using Entidades;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -7,11 +7,11 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace ProyectoFinal.BLL
+namespace BLL
 {
-    public class PeliculasBLL
+    public class UsuariosBLL
     {
-        public static bool Guardar(Pelicula pelicula)
+        public static bool Guardar(Usuario usuario)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
@@ -19,7 +19,7 @@ namespace ProyectoFinal.BLL
             try
             {
 
-                if (contexto.Pelicula.Add(pelicula) != null)
+                if (contexto.Usuario.Add(usuario) != null)
                 {
                     contexto.SaveChanges();
                     paso = true;
@@ -41,11 +41,11 @@ namespace ProyectoFinal.BLL
 
             try
             {
-                Pelicula pelicula = contexto.Pelicula.Find(id);
+                Usuario usuario = contexto.Usuario.Find(id);
 
-                if (pelicula != null)
+                if (usuario != null)
                 {
-                    contexto.Entry(pelicula).State = EntityState.Deleted;
+                    contexto.Entry(usuario).State = EntityState.Deleted;
                 }
 
                 if (contexto.SaveChanges() > 0)
@@ -63,7 +63,7 @@ namespace ProyectoFinal.BLL
 
 
 
-        public static bool Modificar(Pelicula pelicula)
+        public static bool Modificar(Usuario usuario)
         {
 
             bool paso = false;
@@ -71,7 +71,7 @@ namespace ProyectoFinal.BLL
 
             try
             {
-                contexto.Entry(pelicula).State = EntityState.Modified;
+                contexto.Entry(usuario).State = EntityState.Modified;
 
                 if (contexto.SaveChanges() > 0)
                 {
@@ -87,50 +87,53 @@ namespace ProyectoFinal.BLL
 
 
 
-        public static Pelicula Buscar(int id)
+        public static Usuario Buscar(int id)
         {
 
-            Pelicula pelicula = new Pelicula();
+            Usuario usuario = new Usuario();
             Contexto contexto = new Contexto();
 
             try
             {
-                pelicula = contexto.Pelicula.Find(id);
+                usuario = contexto.Usuario.Find(id);
                 contexto.Dispose();
             }
             catch (Exception) { throw; }
 
-            return pelicula;
+            return usuario;
 
         }
 
-
-
-        public static List<Pelicula> GetList(Expression<Func<Pelicula, bool>> expression)
+        public static List<Usuario> GetListTodo()
         {
-            List<Pelicula> pelicula = new List<Pelicula>();
+            List<Usuario> lista = null;
+            try
+            {
+                Contexto dbase = new Contexto();
+                lista = dbase.Usuario.ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            return lista;
+        }
+
+
+        public static List<Usuario> GetList(Expression<Func<Usuario, bool>> expression)
+        {
+            List<Usuario> usuario = new List<Usuario>();
             Contexto contexto = new Contexto();
 
             try
             {
-                pelicula = contexto.Pelicula.Where(expression).ToList();
+                usuario = contexto.Usuario.Where(expression).ToList();
                 contexto.Dispose();
 
             }
             catch (Exception) { throw; }
-            return pelicula;
-        }
-
-        public static string RetornarNombre(string nombre)
-        {
-            string descripcion = string.Empty;
-            var lista = GetList(x => x.Nombre.Equals(nombre));
-            foreach (var item in lista)
-            {
-                descripcion = item.Nombre;
-            }
-
-            return descripcion;
+            return usuario;
         }
     }
 }

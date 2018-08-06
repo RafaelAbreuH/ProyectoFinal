@@ -28,29 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
-            this.TextBox = new System.Windows.Forms.TextBox();
-            this.EmailTextBox = new System.Windows.Forms.TextBox();
+            this.PassworddTextBox = new System.Windows.Forms.TextBox();
+            this.UsernameTextBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.EntrarButton = new System.Windows.Forms.Button();
             this.SalirButton = new System.Windows.Forms.Button();
+            this.MyerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.MyerrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
-            // TextBox
+            // PassworddTextBox
             // 
-            this.TextBox.Location = new System.Drawing.Point(105, 201);
-            this.TextBox.Name = "TextBox";
-            this.TextBox.PasswordChar = '*';
-            this.TextBox.Size = new System.Drawing.Size(166, 20);
-            this.TextBox.TabIndex = 7;
+            this.PassworddTextBox.Location = new System.Drawing.Point(105, 201);
+            this.PassworddTextBox.Name = "PassworddTextBox";
+            this.PassworddTextBox.PasswordChar = '*';
+            this.PassworddTextBox.Size = new System.Drawing.Size(166, 20);
+            this.PassworddTextBox.TabIndex = 7;
             // 
-            // EmailTextBox
+            // UsernameTextBox
             // 
-            this.EmailTextBox.Location = new System.Drawing.Point(105, 157);
-            this.EmailTextBox.Name = "EmailTextBox";
-            this.EmailTextBox.Size = new System.Drawing.Size(166, 20);
-            this.EmailTextBox.TabIndex = 6;
+            this.UsernameTextBox.Location = new System.Drawing.Point(105, 157);
+            this.UsernameTextBox.Name = "UsernameTextBox";
+            this.UsernameTextBox.Size = new System.Drawing.Size(166, 20);
+            this.UsernameTextBox.TabIndex = 6;
             // 
             // label2
             // 
@@ -97,6 +100,10 @@
             this.SalirButton.UseVisualStyleBackColor = true;
             this.SalirButton.Click += new System.EventHandler(this.SalirButton_Click);
             // 
+            // MyerrorProvider
+            // 
+            this.MyerrorProvider.ContainerControl = this;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -106,14 +113,15 @@
             this.ClientSize = new System.Drawing.Size(327, 274);
             this.Controls.Add(this.SalirButton);
             this.Controls.Add(this.EntrarButton);
-            this.Controls.Add(this.TextBox);
-            this.Controls.Add(this.EmailTextBox);
+            this.Controls.Add(this.PassworddTextBox);
+            this.Controls.Add(this.UsernameTextBox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.DoubleBuffered = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Login";
             this.Text = "Login";
+            ((System.ComponentModel.ISupportInitialize)(this.MyerrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -121,11 +129,12 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox TextBox;
-        private System.Windows.Forms.TextBox EmailTextBox;
+        private System.Windows.Forms.TextBox PassworddTextBox;
+        private System.Windows.Forms.TextBox UsernameTextBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button EntrarButton;
         private System.Windows.Forms.Button SalirButton;
+        private System.Windows.Forms.ErrorProvider MyerrorProvider;
     }
 }

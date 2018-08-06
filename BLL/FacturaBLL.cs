@@ -1,17 +1,24 @@
-﻿using ProyectoFinal.DAL;
-using ProyectoFinal.Entidades;
+﻿using DAL;
+using Entidades;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace ProyectoFinal.BLL
+namespace BLL
 {
-    public class UsuariosBLL
+    public class FacturaBLL
     {
-        public static bool Guardar(Usuario usuario)
+
+        public static decimal CalcularImporte(decimal precio, int cantidad)
+        {
+            return Convert.ToDecimal(precio) * Convert.ToInt32(cantidad);
+        }
+
+        public static bool Guardar(Factura factura)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
@@ -19,7 +26,7 @@ namespace ProyectoFinal.BLL
             try
             {
 
-                if (contexto.Usuario.Add(usuario) != null)
+                if (contexto.Factura.Add(factura) != null)
                 {
                     contexto.SaveChanges();
                     paso = true;
@@ -32,7 +39,6 @@ namespace ProyectoFinal.BLL
             return paso;
         }
 
-
         public static bool Eliminar(int id)
         {
 
@@ -41,11 +47,11 @@ namespace ProyectoFinal.BLL
 
             try
             {
-                Usuario usuario = contexto.Usuario.Find(id);
+                Factura factura = contexto.Factura.Find(id);
 
-                if (usuario != null)
+                if (factura != null)
                 {
-                    contexto.Entry(usuario).State = EntityState.Deleted;
+                    contexto.Entry(factura).State = EntityState.Deleted;
                 }
 
                 if (contexto.SaveChanges() > 0)
@@ -61,9 +67,7 @@ namespace ProyectoFinal.BLL
             return paso;
         }
 
-
-
-        public static bool Modificar(Usuario usuario)
+        public static bool Modificar(Factura factura)
         {
 
             bool paso = false;
@@ -71,7 +75,7 @@ namespace ProyectoFinal.BLL
 
             try
             {
-                contexto.Entry(usuario).State = EntityState.Modified;
+                contexto.Entry(factura).State = EntityState.Modified;
 
                 if (contexto.SaveChanges() > 0)
                 {
@@ -85,39 +89,36 @@ namespace ProyectoFinal.BLL
             return paso;
         }
 
-
-
-        public static Usuario Buscar(int id)
+        public static Factura Buscar(int id)
         {
 
-            Usuario usuario = new Usuario();
+            Factura factura = new Factura();
             Contexto contexto = new Contexto();
 
             try
             {
-                usuario = contexto.Usuario.Find(id);
+                factura = contexto.Factura.Find(id);
                 contexto.Dispose();
             }
             catch (Exception) { throw; }
 
-            return usuario;
+            return factura;
 
         }
 
-
-        public static List<Usuario> GetList(Expression<Func<Usuario, bool>> expression)
+        public static List<Factura> GetList(Expression<Func<Factura, bool>> expression)
         {
-            List<Usuario> usuario = new List<Usuario>();
+            List<Factura> factura = new List<Factura>();
             Contexto contexto = new Contexto();
 
             try
             {
-                usuario = contexto.Usuario.Where(expression).ToList();
+                factura = contexto.Factura.Where(expression).ToList();
                 contexto.Dispose();
 
             }
             catch (Exception) { throw; }
-            return usuario;
+            return factura;
         }
     }
 }

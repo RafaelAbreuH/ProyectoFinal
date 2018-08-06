@@ -1,11 +1,11 @@
-﻿using ProyectoFinal.Entidades;
+﻿using Entidades;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
 
-namespace ProyectoFinal.DAL
+namespace DAL
 {
     public class Contexto : DbContext
     {
@@ -16,10 +16,16 @@ namespace ProyectoFinal.DAL
         public DbSet<Generos> Generos { get; set; }
         public DbSet<Factura> Factura { get; set; }
         public DbSet<FacturaDetalle> FacturaDetalle { get; set; }
+        public DbSet<EntradaPelicula> Entrada { get; set; }
 
         public Contexto() : base("ConStr")
         {
 
         }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }
+

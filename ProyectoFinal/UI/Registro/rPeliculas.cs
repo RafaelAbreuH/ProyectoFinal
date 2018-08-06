@@ -1,6 +1,6 @@
-﻿using ProyectoFinal.BLL;
-using ProyectoFinal.DAL;
-using ProyectoFinal.Entidades;
+﻿using BLL;
+using DAL;
+using Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -55,7 +55,7 @@ namespace ProyectoFinal.UI.Registro
                     "Debe ingresar el nombre de la Pelicula");
                 paso = true;
             }
-            if (CantidadNumericUpDown.Value == 0)
+            if (InventarioNumericUpDown.Value == 0)
             {
                 ErrorProvider.SetError(NombreTextBox,
                     "Debe ingresar La cantidad");
@@ -87,7 +87,7 @@ namespace ProyectoFinal.UI.Registro
             PrecioNumericUpDown.Value = 0;
             FechaDateTimePicker.Value = DateTime.Now;
             IntroduccionTextBox.Clear();
-            CantidadNumericUpDown.Value = 0;
+            InventarioNumericUpDown.Value = 0;
         }
 
         private void BuscarButton_Click(object sender, EventArgs e)
@@ -104,7 +104,7 @@ namespace ProyectoFinal.UI.Registro
                 IntroduccionTextBox.Text = pelicula.Introduccion;
                 GenerosComboBox.SelectedValue = pelicula.GeneroId;
                 ProtagonistaComboBox.SelectedValue = pelicula.ActoresId;
-                CantidadNumericUpDown.Value = pelicula.cantidad;
+                InventarioNumericUpDown.Value = pelicula.Inventario;
                 LlenarComboBox();
             }
             else
@@ -123,12 +123,6 @@ namespace ProyectoFinal.UI.Registro
         {
             Pelicula pelicula;
             bool paso = false;
-
-            if (HayErrores())
-                MessageBox.Show("Debe llenar los campos indicados", "Validación",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-            else
-            {
 
 
                 pelicula = LlenarClase();
@@ -164,7 +158,6 @@ namespace ProyectoFinal.UI.Registro
                         MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-        }
 
         private void EliminarButton_Click(object sender, EventArgs e)
         {

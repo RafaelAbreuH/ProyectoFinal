@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using ProyectoFinal.DAL;
+using DAL;
 using System.Data.Entity;
 using System.Linq.Expressions;
 
-namespace ProyectoFinal.BLL
+namespace BLL
 {
-    class Repositorio<T> : IDisposable, IRepository<T> where T : class
+    public class Repositorio<T> : IDisposable, IRepository<T> where T : class
     {
         internal Contexto _contexto;
 

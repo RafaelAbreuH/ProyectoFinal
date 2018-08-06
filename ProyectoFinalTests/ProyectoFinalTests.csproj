@@ -64,6 +64,9 @@
   </Choose>
   <ItemGroup>
     <Compile Include="BLL\ActoresBLLTests.cs" />
+    <Compile Include="BLL\PeliculaBLLTest.cs" />
+    <Compile Include="BLL\ClienteBLLTest.cs" />
+    <Compile Include="BLL\UsuarioBLLTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -71,6 +74,18 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{507a2068-4bbf-477b-ae4a-5170b22e71eb}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{532f70c6-52e6-4c71-b210-160793edd2bb}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{d9a70df5-0c54-47fe-94ca-f8c48de06171}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ProyectoFinal\ProyectoFinal.csproj">
       <Project>{FF25A645-3F42-4EC8-88BF-EBECC87A4A36}</Project>
       <Name>ProyectoFinal</Name>

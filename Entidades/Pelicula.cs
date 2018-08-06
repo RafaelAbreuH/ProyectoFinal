@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 
-namespace ProyectoFinal.Entidades
+namespace Entidades
 {
     public class Pelicula
     {
@@ -17,7 +17,7 @@ namespace ProyectoFinal.Entidades
         public string Introduccion { get; set; }
         public int GeneroId { get; set; }
         public int ActoresId { get; set; }
-        public int cantidad { get; set; }
+        public int Inventario { get; set; }
 
         public Pelicula()
         {
@@ -26,7 +26,7 @@ namespace ProyectoFinal.Entidades
             Precio = 0;
             FechaEstreno = DateTime.Now;
             Introduccion = string.Empty;
-            cantidad = 0;
+            Inventario = 0;
 
         }
     }
